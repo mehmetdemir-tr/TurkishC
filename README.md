@@ -10,22 +10,12 @@ TurkishC; C++, C# vb. C tabanlı programlama dillerine benzer tamamen Türkçe s
 ## Derleme
 **Kaynak kodu (turcc.tc) ve sözlüğü (turkishc.h) indirdikten sonra:**
 
-shell``
+``
 cp turkishc.h /tmp/
 gcc -x c turcc.tc -o turcc
 ``
 
-## Örnek kod:
-turkishc``
-dahilet <stdio.h>
-
-tamsayi ana_fonksiyon()
-basla
-    yazdir("Selam dünya!\n");
-    don 0;
-bitir
-
-``
+## NOT: Örnek kod için [test.tc](https://github.com/mehmetdemir-tr/TurkishC/blob/master/test.tc)'yi inceleyebilirsiniz.
 
 # Operatör listesi:
 ## 1. Kontrol ve Akış Yönetimi
