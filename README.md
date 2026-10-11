@@ -11,7 +11,7 @@ TurkishC; C++, C# vb. C tabanlı programlama dillerine benzer tamamen Türkçe s
 **Kaynak kodu (turcc.tc) ve sözlüğü (turkishc.h) indirdikten sonra:**
 
 ``
-cp turkishc.h /tmp/
+cp turkishc.h /tmp/ &&
 gcc -x c turcc.tc -o turcc
 ``
 
