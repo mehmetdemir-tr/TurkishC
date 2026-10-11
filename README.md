@@ -10,10 +10,16 @@ TurkishC; C++, C# vb. C tabanlı programlama dillerine benzer tamamen Türkçe s
 ## Derleme
 **Kaynak kodu (turcc.tc) ve sözlüğü (turkishc.h) indirdikten sonra:**
 
-``
-cp turkishc.h /tmp/ &&
+```shell
+cp turkishc.h /tmp/
 gcc -x c turcc.tc -o turcc
-``
+```
+
+**Herhangi bir .tc uzantılı bir kodu derlemek için:**
+```
+./turcc test.tc
+./test
+```
 
 ## NOT: Örnek kod için [test.tc](https://github.com/mehmetdemir-tr/TurkishC/blob/master/test.tc)'yi inceleyebilirsiniz.
 
