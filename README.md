@@ -17,6 +17,9 @@ gcc -x c turcc.tc -o turcc
 
 ## NOT: Örnek kod için [test.tc](https://github.com/mehmetdemir-tr/TurkishC/blob/master/test.tc)'yi inceleyebilirsiniz.
 
+## Lisans (License)
+Bu proje **GNU GPL v3.0 (General Public License)** ile lisanslanmıştır. Kodlar tamamen açık kaynaklı olup, bu lisans çerçevesinde özgürce geliştirilebilir, değiştirilebilir ve paylaşılabilir.
+
 # Operatör listesi:
 ## 1. Kontrol ve Akış Yönetimi
 
