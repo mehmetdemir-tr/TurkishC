@@ -2,8 +2,9 @@
 
 #define ana_fonksiyon main
 #define yazdir printf
+#define dyazdirf fprintf
 
-// Kontrol - Emir tipi 
+// Kontrol - Emir tipi
 #define eger if
 #define yoksa else
 #define degis switch
@@ -18,6 +19,7 @@
 #define git goto
 #define basla {
 #define bitir }
+#define BOS NULL
 
 // Depolama tipi
 #define oto auto
@@ -46,7 +48,7 @@
 #define degisken volatile
 #define kisitla restrict
 #define _Atomik _Atomic
-
+#define kaldir remove
 // Veri tipi
 #define mantiksal _Bool
 #define karmasik _Complex
