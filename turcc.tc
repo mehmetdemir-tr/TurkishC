@@ -127,7 +127,7 @@ tamsayi ana_fonksiyon(tamsayi arguman_sayisi, karakter *argumanlar[])
 basla
     eger (arguman_sayisi < 2)
     basla
-        yazdir("Kullanım: ./turkishc <dosya.mc> [ek_dosyalar.c] [parametreler]\n");
+        yazdir("Kullanım: ./turcc <dosya.mc> [ek_dosyalar.c] [parametreler]\n");
         don 1;
     bitir
 
