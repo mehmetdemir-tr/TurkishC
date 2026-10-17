@@ -1,0 +1,29 @@
+{
+	"name": "turkishc",
+	"displayName": "TurkishC Dili Desteği",
+	"description": "Tamamen Türkçe sözdizimine sahip C tabanlı programlama dili (.tc) için VS Code dil desteği: sözdizimi vurgusu, otomatik girinti, snippets.",
+	"version": "0.1.0",
+	"publisher": "mehmetdemir-tr",
+	"license": "GPL-3.0",
+	"engines": { "vscode": "^1.74.0" },
+	"categories": [ "Programming Languages", "Snippets" ],
+	"keywords": [ "turkishc", "turkish", "c", "sözdizimi", "syntax", "dil desteği" ],
+	"repository": { "type": "git", "url": "https://github.com/mehmetdemir-tr/TurkishC" },
+	"contributes": {
+		"languages": [ {
+			"id": "turkishc",
+			"aliases": [ "TurkishC", "turkishc" ],
+			"extensions": [ ".tc" ],
+			"configuration": "./language-configuration.json"
+		} ],
+		"grammars": [ {
+			"language": "turkishc",
+			"scopeName": "source.turkishc",
+			"path": "./syntaxes/turkishc.tmLanguage.json"
+		} ],
+		"snippets": [ {
+			"language": "turkishc",
+			"path": "./snippets.json"
+		} ]
+	}
+}

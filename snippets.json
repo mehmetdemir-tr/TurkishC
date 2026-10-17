@@ -1,0 +1,197 @@
+{
+	"eger": {
+		"prefix": "eger",
+		"body": [
+			"eger (${1:kosul})",
+			"basla",
+			"\t$0",
+			"bitir"
+		],
+		"description": "Koşul bloğu: eger ... basla ... bitir (if)"
+	},
+
+	"egeryoksa": {
+		"prefix": "egeryoksa",
+		"body": [
+			"eger (${1:kosul})",
+			"basla",
+			"\t$2",
+			"bitir",
+			"yoksa",
+			"basla",
+			"\t$0",
+			"bitir"
+		],
+		"description": "Koşul bloğu (if-else): eger ... yoksa ... basla ... bitir"
+	},
+
+	"sirada": {
+		"prefix": "sirada",
+		"body": [
+			"sirada (${1:kosul})",
+			"basla",
+			"\t$0",
+			"bitir"
+		],
+		"description": "Döngü: sirada ... basla ... bitir (while)"
+	},
+
+	"icin": {
+		"prefix": "icin",
+		"body": [
+			"icin (${1:tamsayi $2 = 0; $2 < ${3:uzunluk}; $2++})",
+			"basla",
+			"\t$0",
+			"bitir"
+		],
+		"description": "Döngü: icin ... basla ... bitir (for)"
+	},
+
+	"degis": {
+		"prefix": "degis",
+		"body": [
+			"degis (${1:ifade})",
+			"basla",
+			"\tkalip ${2:deger}:",
+			"\t\t$3",
+			"\t\tkir;",
+			"\tvarsayilan:",
+			"\t\t$0",
+			"\t\tkir;",
+			"bitir"
+		],
+		"description": "Çoklu seçim: degis ... basla ... kalip / varsayilan ... bitir (switch)"
+	},
+
+	"kalip": {
+		"prefix": "kalip",
+		"body": [
+			"kalip ${1:deger}:",
+			"\t$0",
+			"\tkir;"
+		],
+		"description": "Seçenek: kalip ... (case)"
+	},
+
+	"varsayilan": {
+		"prefix": "varsayilan",
+		"body": [
+			"varsayilan:",
+			"\t$0",
+			"\tkir;"
+		],
+		"description": "Varsayılan blok: varsayilan ... (default)"
+	},
+
+	"yapsirada": {
+		"prefix": "yapsirada",
+		"body": [
+			"yap",
+			"basla",
+			"\t$0",
+			"bitir",
+			"sirada (${1:kosul});"
+		],
+		"description": "En az bir kez çalışan döngü: yap ... sirada (do-while)"
+	},
+
+	"ana_fonksiyon": {
+		"prefix": "ana_fonksiyon",
+		"body": [
+			"tamsayi ana_fonksiyon(tamsayi ${1:arguman_sayisi}, karakter ${2:*argumanlar}[])",
+			"basla",
+			"\t$0",
+			"\tdon 0;",
+			"bitir"
+		],
+		"description": "Program giriş noktası: ana_fonksiyon (main)"
+	},
+
+	"ana": {
+		"prefix": "ana",
+		"body": [
+			"tamsayi ana_fonksiyon()",
+			"basla",
+			"\t$0",
+			"\tdon 0;",
+			"bitir"
+		],
+		"description": "Basit ana_fonksiyon (main) şablonu"
+	},
+
+	"fonksiyon": {
+		"prefix": "fonksiyon",
+		"body": [
+			"${1|bosluk,tamsayi,sayi,cifte,karakter|} ${2:fonksiyon_adi}(${3:parametreler})",
+			"basla",
+			"\t$0",
+			"bitir"
+		],
+		"description": "Genel fonksiyon şablonu"
+	},
+
+	"yapi": {
+		"prefix": "yapi",
+		"body": [
+			"yapi ${1:yapi_adi}",
+			"basla",
+			"\t${2:/* icerik */}",
+			"bitir;",
+			"$0"
+		],
+		"description": "Kullanıcı tanımlı veri tipi: yapi ... bitir; (struct)"
+	},
+
+	"yazdir": {
+		"prefix": "yazdir",
+		"body": [
+			"yazdir(\"${1:%d}\\\\n\", ${2:deger});"
+		],
+		"description": "Ekrana yazdırma: yazdir (printf)"
+	},
+
+	"don": {
+		"prefix": "don",
+		"body": [
+			"don ${1:deger};"
+		],
+		"description": "Geriye değer döndür: don (return)"
+	},
+
+	"dahilet": {
+		"prefix": "dahilet",
+		"body": [
+			"dahilet <${1:stdio.h}>"
+		],
+		"description": "Dosya dahil et: dahilet (include)"
+	},
+
+	"tanimla": {
+		"prefix": "tanimla",
+		"body": [
+			"tanimla ${1:AD} ${2:deger}"
+		],
+		"description": "Makro tanımla: tanimla (define)"
+	},
+
+	"tanimlafonk": {
+		"prefix": "tanimlafonk",
+		"body": [
+			"tanimla ${1:AD}(${2:x}) ((${2:x}) ${3:ifade})"
+		],
+		"description": "Fonksiyonel makro tanımla (define with parameter)"
+	},
+
+	"baslik": {
+		"prefix": "baslik",
+		"body": [
+			"egertanimli ${1:BASLIK_H}",
+			"tanimla $1",
+			"",
+			"$0",
+			"",
+			"kosulsonu"
+		],
+		"description": "Başlık dosyası koruma bloğu (ifdef-endif benzeri)"
+	}
+}
