@@ -1,0 +1,141 @@
+{
+	"name": "TurkishC",
+	"scopeName": "source.turkishc",
+	"fileTypes": [ "tc" ],
+	"patterns": [
+		{ "include": "#comments" },
+		{ "include": "#strings" },
+		{ "include": "#numbers" },
+		{ "include": "#preprocessor" },
+		{ "include": "#keywords" },
+		{ "include": "#constants" },
+		{ "include": "#functions" }
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{ "name": "comment.line.turkishc", "match": "//.*$" },
+				{ "name": "comment.block.turkishc", "begin": "/\\*", "end": "\\*/" }
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.turkishc",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{ "name": "constant.character.escape.turkishc", "match": "\\\\." }
+					]
+				},
+				{
+					"name": "string.quoted.single.turkishc",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{ "name": "constant.character.escape.turkishc", "match": "\\\\." }
+					]
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.turkishc",
+					"match": "\\b(0[xX][0-9a-fA-F]+|[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?)[uUlLfF]*\\b"
+				}
+			]
+		},
+		"preprocessor": {
+			"patterns": [
+				{
+					"name": "meta.preprocessor.c",
+					"match": "^\\s*#\\s*(include|define|undef|ifdef|ifndef|else|elif|endif|pragma|error|warning|line)\\b.*$"
+				},
+				{
+					"name": "meta.preprocessor.include.turkishc",
+					"match": "^\\s*(dahilet)\\b\\s*(<[^>]+>|\"[^\"]*\")?",
+					"captures": {
+						"1": { "name": "keyword.control.include.turkishc" },
+						"2": { "name": "string.quoted.include.turkishc" }
+					}
+				},
+				{
+					"name": "meta.preprocessor.define.turkishc",
+					"match": "^\\s*(tanimla)\\b\\s*([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": { "name": "keyword.control.define.turkishc" },
+						"2": { "name": "entity.name.preprocessor.macro.turkishc" }
+					}
+				},
+				{
+					"name": "meta.preprocessor.ifdef.turkishc",
+					"match": "^\\s*(egertanimli)\\b\\s*([A-Za-z_][A-Za-z0-9_]*)?",
+					"captures": {
+						"1": { "name": "keyword.control.conditional.turkishc" },
+						"2": { "name": "entity.other.preprocessor.macro.turkishc" }
+					}
+				},
+				{
+					"name": "meta.preprocessor.endif.turkishc",
+					"match": "^\\s*(kosulsonu)\\b",
+					"captures": {
+						"1": { "name": "keyword.control.conditional.turkishc" }
+					}
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.block.turkishc",
+					"match": "\\b(basla|bitir)\\b"
+				},
+				{
+					"name": "keyword.control.conditional.turkishc",
+					"match": "\\b(eger|yoksa|degis|kalip|varsayilan|egertanimli|kosulsonu)\\b"
+				},
+				{
+					"name": "keyword.control.loop.turkishc",
+					"match": "\\b(icin|sirada|yap|kir|devamet|git)\\b"
+				},
+				{
+					"name": "keyword.control.return.turkishc",
+					"match": "\\bdon\\b"
+				},
+				{
+					"name": "storage.type.turkishc",
+					"match": "\\b(tamsayi|karakter|sayi|cifte|bosluk|kisa|uzun|imzali|imzasiz|mantiksal|karmasik|sanal)\\b"
+				},
+				{
+					"name": "storage.type.aggregate.turkishc",
+					"match": "\\b(yapi|birlik|turtanimi|secenek)\\b"
+				},
+				{
+					"name": "storage.modifier.turkishc",
+					"match": "\\b(oto|kaydet|statik|dis|sabit|degisken|kisitla|_Atomik|satirici|donusyapma|yerel_ip)\\b"
+				},
+				{
+					"name": "keyword.other.turkishc",
+					"match": "\\b(buyukluk|jenerik|statik_iddia|hizala|hizaboyutu)\\b"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.turkishc",
+					"match": "\\b(BOS|bosisaretcisi)\\b"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.turkishc",
+					"match": "\\b(ana_fonksiyon|yazdir|dyazdirf|fyazdir|snyazdir|karakterkoy|kaldir)\\b"
+				}
+			]
+		}
+	}
+}
