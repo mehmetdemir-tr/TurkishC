@@ -39,6 +39,8 @@ sabit karakter *SOZLUK_ICERIGI =
 "#define birlik union\n"
 "#define turtanimi typedef\n"
 "#define secenek enum\n"
+"#define egertanimli ifdef\n"
+"#define kosulsonu endif\n"
 "// Spesiyal Operatorler\n"
 "#define buyukluk sizeof\n"
 "#define hizala _Alignas\n"
@@ -50,6 +52,9 @@ sabit karakter *SOZLUK_ICERIGI =
 "// Niteleyici kelimeler\n"
 "#define satirici inline\n"
 "#define sabit const\n"
+"#define karmasik _Complex\n"
+"#define sanal _Imaginary\n"
+"#define bosisaretcisi nullptr\n"
 "#define BOS NULL\n"
 "#define degisken volatile\n"
 "#define kisitla restrict\n"
@@ -64,7 +69,30 @@ sabit karakter *SOZLUK_ICERIGI =
 "#define kisa short\n"
 "#define uzun long\n"
 "#define imzali signed\n"
+"#define tanimla(isim, deger)\n"
 "#define imzasiz unsigned\n";
+
+sabit karakter *kelime_bul(sabit karakter *satir, sabit karakter *kelime)
+basla
+    tamsayi uzunluk = strlen(kelime);
+    sabit karakter *adim = satir;
+
+    sirada ((adim = strstr(adim, kelime)) != BOS)
+    basla
+        karakter sonraki = adim[uzunluk];
+        eger (sonraki == ' ' || sonraki == '\t' || sonraki == '\n' || sonraki == '\r' || sonraki == '\0') don adim;
+        adim++;
+    bitir
+
+    don BOS;
+bitir
+
+sabit karakter *icerige_atla(sabit karakter *eslesen, sabit karakter *kelime)
+basla
+    sabit karakter *icerik = eslesen + strlen(kelime);
+    sirada (*icerik == ' ' || *icerik == '\t') icerik++;
+    don icerik;
+bitir
 
 bosluk dosya_donustur(sabit karakter *girdi_yolu, sabit karakter *cikti_yolu)
 basla
@@ -98,26 +126,45 @@ basla
             devamet;
         bitir
 
-        eger (strstr(satir, "#include") != BOS || strstr(satir, "#define") != BOS)
+    eger (strstr(satir, "#include") != BOS || strstr(satir, "#define") != BOS)
+    basla
+        dyazdirf(cikis, "%s", satir);
+    bitir
+    yoksa
+    basla
+        karakter dahi_kelimesi[32];   sprintf(dahi_kelimesi, "dahi%s", "let");
+        karakter tanim_kelimesi[32];  sprintf(tanim_kelimesi, "tanim%s", "la");
+        karakter eger_kelimesi[32];   sprintf(eger_kelimesi, "egertanim%s", "li");
+        karakter sonu_kelimesi[32];   sprintf(sonu_kelimesi, "kosulso%s", "nu");
+
+        karakter *dahi_bulundu  = kelime_bul(satir, dahi_kelimesi);
+        karakter *tanim_bulundu = kelime_bul(satir, tanim_kelimesi);
+        karakter *eger_bulundu  = kelime_bul(satir, eger_kelimesi);
+        karakter *sonu_bulundu  = kelime_bul(satir, sonu_kelimesi);
+
+        eger (dahi_bulundu != BOS)
         basla
-            dyazdirf(cikis, "%s", satir);
+            dyazdirf(cikis, "#include %s", icerige_atla(dahi_bulundu, dahi_kelimesi));
+        bitir
+        yoksa eger (tanim_bulundu != BOS)
+        basla
+            dyazdirf(cikis, "#define %s", icerige_atla(tanim_bulundu, tanim_kelimesi));
+        bitir
+        yoksa eger (eger_bulundu != BOS)
+        basla
+            dyazdirf(cikis, "#ifdef %s", icerige_atla(eger_bulundu, eger_kelimesi));
+        bitir
+        yoksa eger (sonu_bulundu != BOS)
+        basla
+            dyazdirf(cikis, "#endif\n");
         bitir
         yoksa
         basla
-            karakter arama_kelimesi[32];
-            sprintf(arama_kelimesi, "dahi%s", "let ");
-            
-            bulundu = strstr(satir, arama_kelimesi);
-            eger (bulundu != BOS)
-            basla
-                dyazdirf(cikis, "#include %s", bulundu + 8);
-            bitir
-            yoksa
-            basla
-                dyazdirf(cikis, "%s", satir);
-            bitir
+            dyazdirf(cikis, "%s", satir);
         bitir
+
     bitir
+bitir
 
     fclose(giris);
     fclose(cikis);
@@ -127,7 +174,7 @@ tamsayi ana_fonksiyon(tamsayi arguman_sayisi, karakter *argumanlar[])
 basla
     eger (arguman_sayisi < 2)
     basla
-        yazdir("Kullanım: ./turcc <dosya.mc> [ek_dosyalar.c] [parametreler]\n");
+        yazdir("Kullanım: ./turkishc <dosya.mc> [ek_dosyalar.c] [parametreler]\n");
         don 1;
     bitir
 
