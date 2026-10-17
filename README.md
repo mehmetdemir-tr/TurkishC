@@ -12,12 +12,12 @@ TurkishC; C++, C# vb. C tabanlı programlama dillerine benzer tamamen Türkçe s
 
 ```shell
 cp turkishc.h /tmp/
-gcc -x c turcc.tc -o turcc
+gcc -x c turkishc.tc -o turkishc
 ```
 
 **Herhangi bir .tc uzantılı bir kodu derlemek için:**
 ```
-./turcc test.tc
+./turkishc test.tc
 ./test
 ```
 
